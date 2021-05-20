@@ -1,6 +1,5 @@
 # ashyq
-
-A new Flutter project.
+Zhabyq project XD
 
 ## Getting Started
 
