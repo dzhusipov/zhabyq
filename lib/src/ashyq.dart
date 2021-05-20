@@ -11,7 +11,7 @@ class Ashyq extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(title: 'Salam'),
+      home: HomePage(),
     );
   }
 }

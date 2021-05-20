@@ -1,14 +1,14 @@
 import 'package:ashyq/src/screens/qr_scanner.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key key}) : super(key: key);
+class ResultPage extends StatefulWidget {
+  ResultPage({Key key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _ResultPageState createState() => _ResultPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ResultPageState extends State<ResultPage> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
