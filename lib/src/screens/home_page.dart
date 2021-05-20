@@ -12,20 +12,6 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
-  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -37,16 +23,97 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
+      backgroundColor: Colors.indigo[50],
       body: SingleChildScrollView(
         child: Container(
-          color: Colors.grey[300],
+          //color: Colors.grey[500],
+          //height: double.infinity,
           alignment: Alignment.topCenter,
           child: Column(
             children: <Widget>[
               GradientAppBar("Salam"),
               Container(
-                child: Row(
-                  children: [],
+                margin: EdgeInsets.only(
+                  top: 30.0,
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                ),
+                child: SizedBox(
+                  height: 85.0,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      print('enter');
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Регистрация входа",
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontFamily: "Raleway",
+                            color: Colors.black,
+                          ),
+                        ),
+                        Image.asset(
+                          "assets/enter.png",
+                          width: 120.0,
+                          height: 120.0,
+                        )
+                      ],
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(10.0),
+                      ),
+                      primary: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                  top: 5.0,
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                ),
+                child: SizedBox(
+                  height: 85.0,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      print('exit');
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Регистрация выхода",
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontFamily: "Raleway",
+                            color: Colors.black,
+                          ),
+                        ),
+                        Image.asset(
+                          "assets/exit.png",
+                          width: 120.0,
+                          height: 120.0,
+                        )
+                      ],
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(10.0),
+                      ),
+                      primary: Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -86,20 +153,25 @@ class GradientAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final double statusbarHeight = MediaQuery.of(context).padding.top;
     return Container(
-      padding: EdgeInsets.only(top: statusbarHeight),
+      //padding: EdgeInsets.only(top: statusbarHeight),
       height: statusbarHeight + barHeight,
       child: Container(
-        margin: EdgeInsets.only(top: 35.0),
+        margin: EdgeInsets.only(top: 60.0),
         child: Column(
           children: [
             Center(
               child: Text(
-                title,
+                'ASHYQ',
                 style: TextStyle(
-                    fontSize: 20.0,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold),
+                  fontSize: 18.0,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
+              /*Image.asset(
+                'assets/logo.png',
+                height: 50.0,
+              ),*/
             ),
             Container(
               margin: EdgeInsets.only(top: 20.0),
@@ -109,7 +181,7 @@ class GradientAppBar extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     height: 70.0,
-                    width: 100.0,
+                    width: 110.0,
                     color: Colors.transparent,
                     child: Container(
                         decoration: BoxDecoration(
@@ -118,11 +190,18 @@ class GradientAppBar extends StatelessWidget {
                                 BorderRadius.all(Radius.circular(10.0))),
                         child: Center(
                           child: Container(
-                            margin: EdgeInsets.all(10.0),
+                            margin: EdgeInsets.only(
+                              bottom: 10.0,
+                              left: 10.0,
+                              right: 10.0,
+                            ),
                             child: Text(
                               "Инструкция для регистрации входа",
-                              style:
-                                  TextStyle(fontSize: 10, color: Colors.white),
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
                               textAlign: TextAlign.left,
                             ),
                           ),
@@ -133,7 +212,7 @@ class GradientAppBar extends StatelessWidget {
                   ),
                   Container(
                     height: 70.0,
-                    width: 100.0,
+                    width: 110.0,
                     color: Colors.transparent,
                     child: Container(
                         decoration: BoxDecoration(
@@ -142,11 +221,18 @@ class GradientAppBar extends StatelessWidget {
                                 BorderRadius.all(Radius.circular(10.0))),
                         child: Center(
                           child: Container(
-                            margin: EdgeInsets.all(10.0),
+                            margin: EdgeInsets.only(
+                              bottom: 10.0,
+                              left: 10.0,
+                              right: 10.0,
+                            ),
                             child: Text(
                               "Инструкция для регистрации выхода",
-                              style:
-                                  TextStyle(fontSize: 10, color: Colors.white),
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
                               textAlign: TextAlign.left,
                             ),
                           ),
@@ -155,15 +241,9 @@ class GradientAppBar extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
+            /*Container(
               margin: EdgeInsets.only(top: 10.0),
               height: 30.0,
-            ),
-            /*Container(
-              //margin: EdgeInsets.only(top: 40.0),
-              child: ListTile(
-                leading: Text('123'),
-              ),
             ),*/
           ],
         ),
