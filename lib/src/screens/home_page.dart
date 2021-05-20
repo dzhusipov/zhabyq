@@ -54,7 +54,7 @@ class _HomePageState extends State<HomePage> {
                           "Регистрация входа",
                           style: TextStyle(
                             fontSize: 18.0,
-                            fontFamily: "Raleway",
+                            //fontFamily: "Raleway",
                             color: Colors.black,
                           ),
                         ),
@@ -70,13 +70,14 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: new BorderRadius.circular(10.0),
                       ),
                       primary: Colors.white,
+                      elevation: 0.5,
                     ),
                   ),
                 ),
               ),
               Container(
                 margin: EdgeInsets.only(
-                  top: 5.0,
+                  top: 8.0,
                 ),
               ),
               Container(
@@ -96,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                           "Регистрация выхода",
                           style: TextStyle(
                             fontSize: 18.0,
-                            fontFamily: "Raleway",
+                            //fontFamily: "Raleway",
                             color: Colors.black,
                           ),
                         ),
@@ -112,6 +113,7 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: new BorderRadius.circular(10.0),
                       ),
                       primary: Colors.white,
+                      elevation: 0.5,
                     ),
                   ),
                 ),
