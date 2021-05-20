@@ -1,4 +1,4 @@
-# ashyq
+# Ashyq
 Zhabyq project XD
 
 ## Getting Started
