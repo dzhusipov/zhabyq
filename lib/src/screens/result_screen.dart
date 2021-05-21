@@ -106,7 +106,7 @@ class _ResultPageState extends State<ResultPage> {
                           top: 20.0,
                         ),
                         child: Text(
-                          'МАМУТОВА МАДИНА АКБАРЖАНОВНА',
+                          'ФАМИЛИЯ ИМЯ ОТЧЕСТВО',
                           style: TextStyle(
                             fontSize: 14.0,
                             fontWeight: FontWeight.bold,
@@ -159,7 +159,7 @@ class _ResultPageState extends State<ResultPage> {
                                     top: 8.0,
                                   ),
                                 ),
-                                Text('Адреналин'),
+                                Text('Название орг'),
                               ],
                             ),
                           ],
