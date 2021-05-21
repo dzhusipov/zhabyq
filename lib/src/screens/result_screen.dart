@@ -18,6 +18,12 @@ class _ResultPageState extends State<ResultPage> {
     await Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         //_timer =
+
+        if (_min == 0 && _sec == 0) {
+          _timer = '0:00';
+          return;
+        }
+
         if (_sec == 0) {
           _min = _min - 1;
           _sec = 59;
