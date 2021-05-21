@@ -1,5 +1,6 @@
 //import 'package:ashyq/src/screens/qr_scanner.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class ResultPage extends StatefulWidget {
   ResultPage({Key key}) : super(key: key);
@@ -10,17 +11,32 @@ class ResultPage extends StatefulWidget {
 
 class _ResultPageState extends State<ResultPage> {
   String _timer = "4:59";
+  int _sec = 59;
+  int _min = 4;
 
   setTimer() async {
     await Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         //_timer =
+        if (_sec == 0) {
+          _min = _min - 1;
+          _sec = 59;
+        } else {
+          _sec = _sec - 1;
+        }
+
+        if (_sec.toString().length == 1) {
+          _timer = '$_min:0$_sec';
+        } else {
+          _timer = '$_min:$_sec';
+        }
       });
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    setTimer();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.indigo[50],
@@ -67,7 +83,7 @@ class _ResultPageState extends State<ResultPage> {
                   right: 20.0,
                 ),
                 child: SizedBox(
-                  height: 340.0,
+                  height: 350.0,
                   child: Column(
                     //mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -235,6 +251,49 @@ class _ResultPageState extends State<ResultPage> {
                   ),
                 ),
               ),
+              Container(
+                margin: EdgeInsets.only(
+                  top: 30.0,
+                ),
+                child: Text(
+                  'Время сканирования кода:',
+                  style: TextStyle(
+                    //fontWeight: FontWeight.bold,
+                    color: Colors.grey,
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                  top: 10.0,
+                ),
+                child: Text(
+                  DateFormat('H:mm').format(DateTime.now()),
+                  //DateTime.now().toString(),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    fontSize: 16.0,
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                  top: 30.0,
+                  left: 40.0,
+                  right: 40.0,
+                ),
+                child: Center(
+                  child: Text(
+                    'Покажите полученный результат соответствующему сотруднику объекта',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -275,7 +334,9 @@ class GradientAppBar extends StatelessWidget {
       //padding: EdgeInsets.only(top: statusbarHeight),
       height: statusbarHeight + barHeight,
       child: Container(
-        margin: EdgeInsets.only(top: 60.0),
+        margin: EdgeInsets.only(
+          top: 60.0,
+        ),
         child: Column(
           children: [
             Center(
@@ -354,10 +415,6 @@ class GradientAppBar extends StatelessWidget {
                 ],
               ),
             ),
-            /*Container(
-              margin: EdgeInsets.only(top: 10.0),
-              height: 30.0,
-            ),*/
           ],
         ),
       ),
