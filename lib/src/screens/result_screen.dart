@@ -1,4 +1,4 @@
-import 'package:ashyq/src/screens/qr_scanner.dart';
+//import 'package:ashyq/src/screens/qr_scanner.dart';
 import 'package:flutter/material.dart';
 
 class ResultPage extends StatefulWidget {
@@ -9,13 +9,13 @@ class ResultPage extends StatefulWidget {
 }
 
 class _ResultPageState extends State<ResultPage> {
-  int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  String _timer = "4:59";
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
+  setTimer() async {
+    await Future.delayed(const Duration(seconds: 1), () {
+      setState(() {
+        //_timer =
+      });
     });
   }
 
@@ -31,95 +31,207 @@ class _ResultPageState extends State<ResultPage> {
           alignment: Alignment.topCenter,
           child: Column(
             children: <Widget>[
-              GradientAppBar("Salam"),
+              GradientAppBar(),
+              Container(
+                margin: EdgeInsets.only(
+                  left: 20.0,
+                ),
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'ИИН',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    //fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
               Container(
                 margin: EdgeInsets.only(
                   top: 30.0,
                 ),
               ),
               Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: 10.0,
-                ),
-                child: SizedBox(
-                  height: 85.0,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => QrScanner(),
-                        ),
-                      );
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Регистрация входа",
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            //fontFamily: "Raleway",
-                            color: Colors.black,
-                          ),
-                        ),
-                        Image.asset(
-                          "assets/enter.png",
-                          width: 120.0,
-                          height: 120.0,
-                        )
-                      ],
+                width: double.infinity / 2,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.white,
+                      spreadRadius: 3,
                     ),
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(10.0),
-                      ),
-                      primary: Colors.white,
-                      elevation: 0.5,
-                    ),
-                  ),
+                  ],
                 ),
-              ),
-              Container(
                 margin: EdgeInsets.only(
-                  top: 8.0,
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: 10.0,
+                  left: 20.0,
+                  right: 20.0,
                 ),
                 child: SizedBox(
-                  height: 85.0,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('exit');
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Регистрация выхода",
+                  height: 340.0,
+                  child: Column(
+                    //mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(
+                          top: 5.0,
+                        ),
+                        child: Text(
+                          'ВХОД',
                           style: TextStyle(
-                            fontSize: 18.0,
-                            //fontFamily: "Raleway",
-                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue[800],
                           ),
                         ),
-                        Image.asset(
-                          "assets/exit.png",
-                          width: 120.0,
-                          height: 120.0,
-                        )
-                      ],
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(10.0),
                       ),
-                      primary: Colors.white,
-                      elevation: 0.5,
-                    ),
+                      Container(
+                        //alignment: Alignment.center,
+                        margin: EdgeInsets.only(
+                          top: 20.0,
+                        ),
+                        child: Text(
+                          'МАМУТОВА МАДИНА АКБАРЖАНОВНА',
+                          style: TextStyle(
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.bold,
+                            //color: Colors.blue[800],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        //alignment: Alignment.center,
+                        margin: EdgeInsets.only(
+                          top: 20.0,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Column(
+                              children: [
+                                Text(
+                                  'БИН/ИИН',
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(
+                                    top: 8.0,
+                                  ),
+                                ),
+                                Text('1234567890'),
+                              ],
+                            ),
+                            Container(
+                              color: Colors.grey,
+                              width: 1.0,
+                              height: 60.0,
+                              margin: EdgeInsets.symmetric(
+                                horizontal: 50.0,
+                              ),
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  'Номер входа',
+                                  style: TextStyle(
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(
+                                    top: 8.0,
+                                  ),
+                                ),
+                                Text('Адреналин'),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        color: Colors.grey,
+                        //width: 50.0,
+                        height: 1.0,
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(
+                          top: 8.0,
+                        ),
+                        child: Text(
+                          'Статус',
+                          style: TextStyle(
+                            //fontWeight: FontWeight.bold,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(
+                          left: 5.0,
+                          right: 5.0,
+                          top: 8.0,
+                        ),
+                        height: 80.0,
+                        width: double.infinity / 2,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.blue[200],
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.white,
+                              spreadRadius: 3,
+                            ),
+                          ],
+                        ),
+                        child: Column(
+                          children: [
+                            Align(
+                              alignment: Alignment.topRight,
+                              child: Icon(
+                                Icons.info_outline,
+                                color: Colors.blue[700],
+                              ),
+                            ),
+                            Center(
+                              child: Text(
+                                'СИНИЙ',
+                                style: TextStyle(
+                                  color: Colors.blue[700],
+                                  fontSize: 26.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(
+                          top: 15.0,
+                        ),
+                        child: Text(
+                          'Срок действия истечет через:',
+                          style: TextStyle(
+                            //fontWeight: FontWeight.bold,
+                            color: Colors.grey,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(
+                          top: 15.0,
+                        ),
+                        child: Text(
+                          _timer,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                            fontSize: 26.0,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -127,7 +239,7 @@ class _ResultPageState extends State<ResultPage> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      /*bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -145,16 +257,16 @@ class _ResultPageState extends State<ResultPage> {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue[800],
         onTap: _onItemTapped,
-      ),
+      ),*/
     );
   }
 }
 
 class GradientAppBar extends StatelessWidget {
-  final String title;
+  //final String title;
   final double barHeight = 170.0;
 
-  GradientAppBar(this.title);
+  //GradientAppBar(this.title);
 
   @override
   Widget build(BuildContext context) {
@@ -191,69 +303,53 @@ class GradientAppBar extends StatelessWidget {
               ),*/
             ),
             Container(
-              margin: EdgeInsets.only(top: 20.0),
+              margin: EdgeInsets.only(
+                top: 20.0,
+                left: 20.0,
+                right: 20.0,
+              ),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Container(
-                    height: 70.0,
-                    width: 110.0,
-                    color: Colors.transparent,
-                    child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.blue[900],
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10.0))),
-                        child: Center(
-                          child: Container(
-                            margin: EdgeInsets.only(
-                              bottom: 10.0,
-                              left: 10.0,
-                              right: 10.0,
-                            ),
-                            child: Text(
-                              "Инструкция для регистрации входа",
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                        )),
+                    child: Text(
+                      'ФИО',
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
                   ),
                   Container(
-                    width: 30.0,
+                    child: Text(''),
+                  ),
+                ],
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                top: 20.0,
+                left: 20.0,
+                right: 20.0,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    child: Text(
+                      'Номер телефона',
+                      style: TextStyle(
+                        color: Colors.grey,
+                      ),
+                    ),
                   ),
                   Container(
-                    height: 70.0,
-                    width: 110.0,
-                    color: Colors.transparent,
-                    child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.blue[900],
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10.0))),
-                        child: Center(
-                          child: Container(
-                            margin: EdgeInsets.only(
-                              bottom: 10.0,
-                              left: 10.0,
-                              right: 10.0,
-                            ),
-                            child: Text(
-                              "Инструкция для регистрации выхода",
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                        )),
+                    child: Text(
+                      '+7777777777',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
                 ],
               ),

@@ -133,7 +133,7 @@ class _QrScannerState extends State<QrScanner> {
     var scanArea = (MediaQuery.of(context).size.width < 400 ||
             MediaQuery.of(context).size.height < 400)
         ? 150.0
-        : 360.0;
+        : 500.0;
     // To ensure the Scanner view is properly sizes after rotation
     // we need to listen for Flutter SizeChanged notification and update controller
     return QRView(
@@ -161,7 +161,7 @@ class _QrScannerState extends State<QrScanner> {
 
   @override
   void dispose() {
-    controller?.dispose();
+    controller.dispose();
     super.dispose();
   }
 }
