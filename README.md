@@ -1,2 +1,2 @@
 # Ashyq
-Written with flutter
+Written on flutter
