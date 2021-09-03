@@ -350,7 +350,7 @@ class GradientAppBar extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/only_logo.png',
+                    'assets/only_logo_ed.png',
                     height: 40.0,
                     width: 40.0,
                   ),

@@ -24,8 +24,6 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.indigo[50],
       body: SingleChildScrollView(
         child: Container(
-          //color: Colors.grey[500],
-          //height: double.infinity,
           alignment: Alignment.topCenter,
           child: Column(
             children: <Widget>[
@@ -162,6 +160,7 @@ class GradientAppBar extends StatelessWidget {
       height: statusbarHeight + barHeight,
       child: Container(
         margin: EdgeInsets.only(top: 60.0),
+        height: 500,
         child: Column(
           children: [
             Center(
@@ -169,7 +168,7 @@ class GradientAppBar extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/only_logo.png',
+                    'assets/only_logo_ed.png',
                     height: 40.0,
                     width: 40.0,
                   ),
