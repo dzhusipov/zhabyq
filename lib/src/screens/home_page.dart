@@ -189,70 +189,32 @@ class GradientAppBar extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.only(top: 20.0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                    height: 70.0,
-                    width: 110.0,
-                    color: Colors.transparent,
-                    child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.blue[900],
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10.0))),
-                        child: Center(
-                          child: Container(
-                            margin: EdgeInsets.only(
-                              bottom: 10.0,
-                              left: 10.0,
-                              right: 10.0,
-                            ),
-                            child: Text(
-                              "Инструкция для регистрации входа",
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
+              child: Container(
+                height: 70.0,
+                width: 110.0,
+                color: Colors.transparent,
+                child: Container(
+                    decoration: BoxDecoration(
+                        color: Colors.blue[900],
+                        borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                    child: Center(
+                      child: Container(
+                        margin: EdgeInsets.only(
+                          bottom: 10.0,
+                          left: 10.0,
+                          right: 10.0,
+                        ),
+                        child: Text(
+                          "Инструкция для регистрации входа",
+                          style: TextStyle(
+                            fontSize: 10,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
                           ),
-                        )),
-                  ),
-                  Container(
-                    width: 30.0,
-                  ),
-                  Container(
-                    height: 70.0,
-                    width: 110.0,
-                    color: Colors.transparent,
-                    child: Container(
-                        decoration: BoxDecoration(
-                            color: Colors.blue[900],
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(10.0))),
-                        child: Center(
-                          child: Container(
-                            margin: EdgeInsets.only(
-                              bottom: 10.0,
-                              left: 10.0,
-                              right: 10.0,
-                            ),
-                            child: Text(
-                              "Инструкция для регистрации выхода",
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                              textAlign: TextAlign.left,
-                            ),
-                          ),
-                        )),
-                  ),
-                ],
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                    )),
               ),
             ),
             /*Container(

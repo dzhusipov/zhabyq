@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+import 'modules/gradient_app_bar.dart';
+
 class ResultPage extends StatefulWidget {
   ResultPage({Key key}) : super(key: key);
 
@@ -323,115 +325,6 @@ class _ResultPageState extends State<ResultPage> {
         selectedItemColor: Colors.blue[800],
         onTap: _onItemTapped,
       ),*/
-    );
-  }
-}
-
-class GradientAppBar extends StatelessWidget {
-  //final String title;
-  final double barHeight = 170.0;
-
-  //GradientAppBar(this.title);
-
-  @override
-  Widget build(BuildContext context) {
-    final double statusbarHeight = MediaQuery.of(context).padding.top;
-    return Container(
-      //padding: EdgeInsets.only(top: statusbarHeight),
-      height: statusbarHeight + barHeight,
-      child: Container(
-        margin: EdgeInsets.only(
-          top: 60.0,
-        ),
-        child: Column(
-          children: [
-            Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    'assets/only_logo_ed.png',
-                    height: 40.0,
-                    width: 40.0,
-                  ),
-                  Text(
-                    'ASHYQ',
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-              /*Image.asset(
-                'assets/logo.png',
-                height: 50.0,
-              ),*/
-            ),
-            Container(
-              margin: EdgeInsets.only(
-                top: 20.0,
-                left: 20.0,
-                right: 20.0,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Container(
-                    child: Text(
-                      'ФИО',
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    child: Text(''),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(
-                top: 20.0,
-                left: 20.0,
-                right: 20.0,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Container(
-                    child: Text(
-                      'Номер телефона',
-                      style: TextStyle(
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    child: Text(
-                      '+7777777777',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-            colors: [Colors.blue, Colors.blue[900]],
-            begin: const FractionalOffset(0.0, 0.0),
-            end: const FractionalOffset(0.0, 1.0),
-            stops: [0.0, 1.0],
-            tileMode: TileMode.clamp),
-      ),
     );
   }
 }
