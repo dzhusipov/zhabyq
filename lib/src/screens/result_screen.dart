@@ -1,4 +1,3 @@
-//import 'package:ashyq/src/screens/qr_scanner.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -50,8 +49,6 @@ class _ResultPageState extends State<ResultPage> {
       backgroundColor: Colors.indigo[50],
       body: SingleChildScrollView(
         child: Container(
-          //color: Colors.grey[500],
-          //height: double.infinity,
           alignment: Alignment.topCenter,
           child: Column(
             children: <Widget>[
@@ -93,7 +90,6 @@ class _ResultPageState extends State<ResultPage> {
                 child: SizedBox(
                   height: 350.0,
                   child: Column(
-                    //mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
@@ -109,7 +105,6 @@ class _ResultPageState extends State<ResultPage> {
                         ),
                       ),
                       Container(
-                        //alignment: Alignment.center,
                         margin: EdgeInsets.only(
                           top: 20.0,
                         ),
@@ -118,12 +113,10 @@ class _ResultPageState extends State<ResultPage> {
                           style: TextStyle(
                             fontSize: 14.0,
                             fontWeight: FontWeight.bold,
-                            //color: Colors.blue[800],
                           ),
                         ),
                       ),
                       Container(
-                        //alignment: Alignment.center,
                         margin: EdgeInsets.only(
                           top: 20.0,
                         ),
@@ -175,7 +168,6 @@ class _ResultPageState extends State<ResultPage> {
                       ),
                       Container(
                         color: Colors.grey,
-                        //width: 50.0,
                         height: 1.0,
                       ),
                       Container(
@@ -185,7 +177,6 @@ class _ResultPageState extends State<ResultPage> {
                         child: Text(
                           'Статус',
                           style: TextStyle(
-                            //fontWeight: FontWeight.bold,
                             color: Colors.grey,
                           ),
                         ),
@@ -237,7 +228,6 @@ class _ResultPageState extends State<ResultPage> {
                         child: Text(
                           'Срок действия истечет через:',
                           style: TextStyle(
-                            //fontWeight: FontWeight.bold,
                             color: Colors.grey,
                           ),
                         ),
@@ -266,7 +256,6 @@ class _ResultPageState extends State<ResultPage> {
                 child: Text(
                   'Время сканирования кода:',
                   style: TextStyle(
-                    //fontWeight: FontWeight.bold,
                     color: Colors.grey,
                   ),
                 ),
@@ -277,7 +266,6 @@ class _ResultPageState extends State<ResultPage> {
                 ),
                 child: Text(
                   DateFormat('H:mm').format(DateTime.now()),
-                  //DateTime.now().toString(),
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.black,
@@ -306,25 +294,6 @@ class _ResultPageState extends State<ResultPage> {
           ),
         ),
       ),
-      /*bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Главная',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.notifications_none),
-            label: 'Уведомления',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_outlined),
-            label: 'Настройка',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue[800],
-        onTap: _onItemTapped,
-      ),*/
     );
   }
 }

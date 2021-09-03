@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
 class GradientAppBar extends StatelessWidget {
-  //final String title;
   final double barHeight = 170.0;
-
-  //GradientAppBar(this.title);
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +17,18 @@ class GradientAppBar extends StatelessWidget {
           children: [
             Center(
               child: Row(
-                //mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.white,
-                      size: 50,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                      child: Icon(
+                        Icons.arrow_back_ios,
+                        color: Colors.white,
+                        size: 50,
+                      ),
                     ),
                   ),
                   Image.asset(
@@ -45,10 +46,6 @@ class GradientAppBar extends StatelessWidget {
                   ),
                 ],
               ),
-              /*Image.asset(
-              'assets/logo.png',
-              height: 50.0,
-            ),*/
             ),
             Container(
               margin: EdgeInsets.only(

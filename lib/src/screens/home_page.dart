@@ -1,4 +1,4 @@
-import 'package:ashyq/src/screens/qr_scanner.dart';
+import 'qr_scanner.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
