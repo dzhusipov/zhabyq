@@ -50,10 +50,14 @@ flutter:
   assets:
     - assets/logo.png
     - assets/enter.png
+    - assets/enter_logo.png
     - assets/exit.png
     - assets/only_logo.png
     - assets/only_logo_ed.png
-  #   - images/a_dot_ham.jpeg
+    - assets/info_icon.png
+    - assets/info_icon_selected.png
+    - assets/ashyq_icon.png
+    - assets/ashyq_icon_selected.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

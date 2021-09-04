@@ -191,7 +191,7 @@ class _ResultPageState extends State<ResultPage> {
                         width: double.infinity / 2,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: Colors.blue[200],
+                          color: Color.fromRGBO(164, 238, 173, 1),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.white,
@@ -205,14 +205,14 @@ class _ResultPageState extends State<ResultPage> {
                               alignment: Alignment.topRight,
                               child: Icon(
                                 Icons.info_outline,
-                                color: Colors.blue[700],
+                                color: Color.fromRGBO(0, 134, 61, 1),
                               ),
                             ),
                             Center(
                               child: Text(
-                                'СИНИЙ',
+                                'БЕЗОПАСНЫЙ',
                                 style: TextStyle(
-                                  color: Colors.blue[700],
+                                  color: Color.fromRGBO(0, 134, 61, 1),
                                   fontSize: 26.0,
                                   fontWeight: FontWeight.bold,
                                 ),

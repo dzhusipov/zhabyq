@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 import 'qr_scanner.dart';
 import 'package:flutter/material.dart';
 
@@ -21,24 +23,31 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.indigo[50],
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Container(
           alignment: Alignment.topCenter,
           child: Column(
             children: <Widget>[
-              GradientAppBar("Salam"),
+              GradientAppBar(),
               Container(
-                margin: EdgeInsets.only(
-                  top: 30.0,
+                margin: EdgeInsets.only(top: 30.0),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 10, bottom: 10),
+                width: MediaQuery.of(context).size.width,
+                child: Text(
+                  'Для пользователей',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                  ),
                 ),
               ),
               Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: 10.0,
-                ),
+                margin: EdgeInsets.symmetric(horizontal: 10.0),
                 child: SizedBox(
-                  height: 85.0,
+                  height: 80.0,
                   child: ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -60,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         Image.asset(
-                          "assets/enter.png",
+                          "assets/enter_logo.png",
                           width: 120.0,
                           height: 120.0,
                         )
@@ -70,50 +79,7 @@ class _HomePageState extends State<HomePage> {
                       shape: RoundedRectangleBorder(
                         borderRadius: new BorderRadius.circular(10.0),
                       ),
-                      primary: Colors.white,
-                      elevation: 0.5,
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(
-                  top: 8.0,
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(
-                  horizontal: 10.0,
-                ),
-                child: SizedBox(
-                  height: 85.0,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('exit');
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Регистрация выхода",
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            //fontFamily: "Raleway",
-                            color: Colors.black,
-                          ),
-                        ),
-                        Image.asset(
-                          "assets/exit.png",
-                          width: 120.0,
-                          height: 120.0,
-                        )
-                      ],
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(10.0),
-                      ),
-                      primary: Colors.white,
+                      primary: Color.fromRGBO(230, 233, 238, 1),
                       elevation: 0.5,
                     ),
                   ),
@@ -124,18 +90,31 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: SizedBox(
+              width: 20,
+              height: 20,
+              child: Image.asset('assets/info_icon.png'),
+            ),
+            label: 'Инфо',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.home),
             label: 'Главная',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications_none),
-            label: 'Уведомления',
+            icon: Icon(Icons.account_circle_outlined),
+            label: 'Профиль',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_outlined),
-            label: 'Настройка',
+            icon: SizedBox(
+              width: 20,
+              height: 20,
+              child: Image.asset('assets/ashyq_icon.png'),
+            ),
+            label: 'О приложении',
           ),
         ],
         currentIndex: _selectedIndex,
@@ -147,10 +126,9 @@ class _HomePageState extends State<HomePage> {
 }
 
 class GradientAppBar extends StatelessWidget {
-  final String title;
-  final double barHeight = 170.0;
+  final double barHeight = 130.0;
 
-  GradientAppBar(this.title);
+  GradientAppBar();
 
   @override
   Widget build(BuildContext context) {
@@ -182,45 +160,40 @@ class GradientAppBar extends StatelessWidget {
                   ),
                 ],
               ),
-              /*Image.asset(
-                'assets/logo.png',
-                height: 50.0,
-              ),*/
             ),
             Container(
               margin: EdgeInsets.only(top: 20.0),
               child: Container(
-                height: 70.0,
-                width: 110.0,
+                height: 60.0,
+                width: 100.0,
                 color: Colors.transparent,
-                child: Container(
-                    decoration: BoxDecoration(
-                        color: Colors.blue[900],
-                        borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                    child: Center(
-                      child: Container(
-                        margin: EdgeInsets.only(
-                          bottom: 10.0,
-                          left: 10.0,
-                          right: 10.0,
-                        ),
-                        child: Text(
-                          "Инструкция для регистрации входа",
-                          style: TextStyle(
-                            fontSize: 10,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                          textAlign: TextAlign.left,
-                        ),
+                child: Center(
+                  child: Container(
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(0, 59, 150, 1),
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
                       ),
-                    )),
+                      child: Center(
+                        child: Container(
+                          margin: EdgeInsets.only(
+                            bottom: 10.0,
+                            left: 10.0,
+                            right: 10.0,
+                          ),
+                          child: Text(
+                            "Инструкция для регистрации входа",
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                        ),
+                      )),
+                ),
               ),
             ),
-            /*Container(
-              margin: EdgeInsets.only(top: 10.0),
-              height: 30.0,
-            ),*/
           ],
         ),
       ),
