@@ -1,7 +1,8 @@
+import 'package:ashyq/src/screens/home_page.dart';
 import 'package:flutter/material.dart';
 
 class GradientAppBar extends StatelessWidget {
-  final double barHeight = 170.0;
+  final double barHeight = 180.0;
 
   @override
   Widget build(BuildContext context) {
@@ -18,18 +19,26 @@ class GradientAppBar extends StatelessWidget {
             Center(
               child: Row(
                 children: [
-                  Align(
-                    alignment: Alignment.centerLeft,
+                  Container(
+                    margin: EdgeInsets.only(left: 5),
                     child: InkWell(
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => HomePage(),
+                          ),
+                        );
                       },
                       child: Icon(
                         Icons.arrow_back_ios,
                         color: Colors.white,
-                        size: 50,
+                        size: 20,
                       ),
                     ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 130),
                   ),
                   Image.asset(
                     'assets/only_logo_ed.png',
@@ -58,14 +67,19 @@ class GradientAppBar extends StatelessWidget {
                 children: <Widget>[
                   Container(
                     child: Text(
-                      'ФИО',
+                      '+77012223344',
                       style: TextStyle(
-                        color: Colors.grey,
+                        color: Colors.white,
                       ),
                     ),
                   ),
                   Container(
-                    child: Text(''),
+                    child: Text(
+                      '123456789012',
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -83,16 +97,16 @@ class GradientAppBar extends StatelessWidget {
                     child: Text(
                       'Номер телефона',
                       style: TextStyle(
-                        color: Colors.grey,
+                        color: Color.fromRGBO(161, 185, 219, 1),
                       ),
                     ),
                   ),
                   Container(
+                    width: 95,
                     child: Text(
-                      '+7777777777',
+                      'ИИН',
                       style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                        color: Color.fromRGBO(161, 185, 219, 1),
                       ),
                     ),
                   ),
