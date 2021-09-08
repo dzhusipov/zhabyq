@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -11,37 +13,95 @@ class ResultPage extends StatefulWidget {
 }
 
 class _ResultPageState extends State<ResultPage> {
-  String _timer = "04:59";
-  int _sec = 59;
-  int _min = 4;
-  int ms = 0;
-  setTimer() async {
-    await Future.delayed(const Duration(seconds: 1), () {
+  Stopwatch _stopwatch;
+  Timer _timer;
+  int minTime = 4;
+  int _oldSec = 9999;
+
+  int _ainmationDuration = 800;
+
+  Timer _visibilityTimer;
+  bool _visible = true;
+
+  @override
+  void initState() {
+    super.initState();
+    _stopwatch = Stopwatch();
+    _timer = Timer.periodic(Duration(milliseconds: 30), (timer) {
+      setState(() {});
+    });
+
+    _visibilityTimer = Timer.periodic(Duration(milliseconds: 700), (timer) {
       setState(() {
-        if (_min == 0 && _sec == 0) {
-          _timer = '00:00';
-          return;
-        }
-
-        if (_sec == 0) {
-          _min = _min - 1;
-          _sec = 59;
-        } else {
-          _sec = _sec - 1;
-        }
-
-        if (_sec.toString().length == 1) {
-          _timer = '0$_min:0$_sec';
-        } else {
-          _timer = '0$_min:$_sec';
-        }
+        _visible = !_visible;
       });
     });
   }
 
   @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
+
+  void handleStartStop() {
+    if (_stopwatch.isRunning) {
+      _stopwatch.stop();
+    } else {
+      _stopwatch.start();
+    }
+
+    setState(() {});
+  }
+
+  String formatTime(int milliseconds) {
+    var secs = milliseconds ~/ 1000;
+    //var hours = (secs ~/ 3600).toString().padLeft(2, '0');
+    var minutes = ((secs % 3600) ~/ 60).toString().padLeft(2, '0');
+    var seconds = (secs % 60).toString().padLeft(2, '0');
+    String ms = '';
+
+    if (milliseconds >= 1000) {
+      ms =
+          milliseconds.toString().substring(milliseconds.toString().length - 2);
+    }
+
+    int minInt = int.parse(minutes);
+    String minStr = '';
+
+    if (seconds == '60') {
+      seconds = '00';
+    }
+
+    if (minInt <= 59) {
+      minStr = (minTime - minInt).toString();
+    } else {
+      minStr = '0';
+    }
+
+    int secInt = int.parse(seconds);
+    String secStr = '';
+    if (secInt <= 59) {
+      secStr = (60 - secInt - 1).toString();
+    } else {
+      secStr = '0';
+    }
+
+    if (minStr == '60') {
+      minStr = '00';
+    }
+
+    if (secStr.length == 1) {
+      secStr = '0$secStr';
+    }
+
+    return "0$minStr:$secStr:$ms";
+  }
+
+  @override
   Widget build(BuildContext context) {
-    setTimer();
+    //setTimer();
+    _stopwatch.start();
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Colors.indigo[50],
@@ -156,44 +216,48 @@ class _ResultPageState extends State<ResultPage> {
                             TextStyle(color: Color.fromRGBO(161, 185, 219, 1)),
                       ),
                     ),
-                    Container(
-                      margin: EdgeInsets.only(
-                        left: 5.0,
-                        right: 5.0,
-                        top: 8.0,
-                      ),
-                      height: 80.0,
-                      width: double.infinity / 2,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: Color.fromRGBO(164, 238, 173, 1),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.white,
-                            spreadRadius: 3,
-                          ),
-                        ],
-                      ),
-                      child: Column(
-                        children: [
-                          Align(
-                            alignment: Alignment.topRight,
-                            child: Icon(
-                              Icons.info_outline,
-                              color: Color.fromRGBO(0, 134, 61, 1),
+                    AnimatedOpacity(
+                      duration: Duration(milliseconds: _ainmationDuration),
+                      opacity: _visible ? 1.0 : 0.0,
+                      child: Container(
+                        margin: EdgeInsets.only(
+                          left: 5.0,
+                          right: 5.0,
+                          top: 8.0,
+                        ),
+                        height: 80.0,
+                        width: double.infinity / 2,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Color.fromRGBO(164, 238, 173, 1),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.white,
+                              spreadRadius: 3,
                             ),
-                          ),
-                          Center(
-                            child: Text(
-                              'БЕЗОПАСНЫЙ',
-                              style: TextStyle(
+                          ],
+                        ),
+                        child: Column(
+                          children: [
+                            Align(
+                              alignment: Alignment.topRight,
+                              child: Icon(
+                                Icons.info_outline,
                                 color: Color.fromRGBO(0, 134, 61, 1),
-                                fontSize: 26.0,
-                                fontWeight: FontWeight.bold,
                               ),
                             ),
-                          ),
-                        ],
+                            Center(
+                              child: Text(
+                                'БЕЗОПАСНЫЙ',
+                                style: TextStyle(
+                                  color: Color.fromRGBO(0, 134, 61, 1),
+                                  fontSize: 26.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Container(
@@ -218,7 +282,7 @@ class _ResultPageState extends State<ResultPage> {
                           Container(
                             margin: EdgeInsets.only(top: 20.0, bottom: 20),
                             child: Text(
-                              _timer,
+                              formatTime(_stopwatch.elapsedMilliseconds),
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.black,

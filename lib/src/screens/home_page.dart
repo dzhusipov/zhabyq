@@ -126,7 +126,7 @@ class _HomePageState extends State<HomePage> {
 }
 
 class GradientAppBar extends StatelessWidget {
-  final double barHeight = 130.0;
+  final double barHeight = 170.0;
 
   GradientAppBar();
 
