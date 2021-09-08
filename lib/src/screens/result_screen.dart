@@ -16,8 +16,6 @@ class _ResultPageState extends State<ResultPage> {
   Stopwatch _stopwatch;
   Timer _timer;
   int minTime = 4;
-  int _oldSec = 9999;
-
   int _ainmationDuration = 800;
 
   Timer _visibilityTimer;
