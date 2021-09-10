@@ -20,7 +20,7 @@ class GradientAppBar extends StatelessWidget {
               child: Row(
                 children: [
                   Container(
-                    margin: EdgeInsets.only(left: 5),
+                    margin: EdgeInsets.only(left: 20),
                     child: InkWell(
                       onTap: () {
                         Navigator.push(
@@ -38,7 +38,7 @@ class GradientAppBar extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 130),
+                    margin: EdgeInsets.only(left: 110),
                   ),
                   Image.asset(
                     'assets/only_logo_ed.png',

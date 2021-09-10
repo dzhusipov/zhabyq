@@ -1,9 +1,10 @@
 import 'dart:async';
 
+import 'package:ashyq/src/modules/gradient_app_result_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import 'modules/gradient_app_result_bar.dart';
+import '../modules/gradient_app_result_bar.dart';
 
 class ResultPage extends StatefulWidget {
   ResultPage({Key key}) : super(key: key);

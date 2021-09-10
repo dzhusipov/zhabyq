@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'qr_scanner.dart';
 import 'package:flutter/material.dart';
 
+import 'settings_page.dart';
+
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
 
@@ -14,6 +16,14 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
+    if (index == 2) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SettingsPage(),
+        ),
+      );
+    }
     setState(() {
       _selectedIndex = index;
     });
