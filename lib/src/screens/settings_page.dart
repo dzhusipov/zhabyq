@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
@@ -9,6 +10,13 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  bool isShowStatus = false;
+  showStatus() {
+    setState(() {
+      isShowStatus = !isShowStatus;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,11 +39,33 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               child: Column(
                 children: [
-                  Text('ИИН'),
-                  Text('891008351024'),
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: Text('123123123'),
+                  Text(
+                    'ИИН',
+                    style: TextStyle(
+                      color: Color.fromRGBO(161, 185, 219, 1),
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    '891008351024',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 160,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        showStatus();
+                      },
+                      child: Text(
+                        isShowStatus ? 'Показать статус' : 'Скрыть статус',
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        primary: Color.fromRGBO(205, 211, 224, 1),
+                      ),
+                    ),
                   ),
                 ],
               ),
