@@ -108,7 +108,7 @@ class _ResultPageState extends State<ResultPage> {
         children: <Widget>[
           GradientAppBar(),
           Align(
-            alignment: Alignment(0, 0.2),
+            alignment: Alignment(0, 0.4),
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
@@ -317,12 +317,13 @@ class _ResultPageState extends State<ResultPage> {
             ),
           ),
           Align(
-            alignment: Alignment(0, 0.8),
+            alignment: Alignment.bottomCenter,
             child: Container(
               margin: EdgeInsets.only(
                 top: 30.0,
                 left: 10.0,
                 right: 10.0,
+                bottom: 20.0,
               ),
               child: Text(
                 'Покажите полученный результат соответствующему сотруднику объекта',

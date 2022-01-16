@@ -1,15 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 
-class SettingsPage extends StatefulWidget {
-  SettingsPage({Key key}) : super(key: key);
+class ProfilePage extends StatefulWidget {
+  ProfilePage({Key key}) : super(key: key);
 
   @override
-  _SettingsPageState createState() => _SettingsPageState();
+  _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _SettingsPageState extends State<SettingsPage> {
+class _ProfilePageState extends State<ProfilePage> {
   bool isShowStatus = false;
   showStatus() {
     setState(() {

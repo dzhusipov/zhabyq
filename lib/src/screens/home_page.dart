@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'qr_scanner.dart';
 import 'package:flutter/material.dart';
 
-import 'settings_page.dart';
+import 'profile_page.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => SettingsPage(),
+          builder: (context) => ProfilePage(),
         ),
       );
     }
@@ -43,58 +43,8 @@ class _HomePageState extends State<HomePage> {
               Container(
                 margin: EdgeInsets.only(top: 30.0),
               ),
-              Container(
-                margin: EdgeInsets.only(left: 10, bottom: 10),
-                width: MediaQuery.of(context).size.width,
-                child: Text(
-                  'Для пользователей',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 10.0),
-                child: SizedBox(
-                  height: 80.0,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => QrScanner(),
-                        ),
-                      );
-                    },
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Регистрация входа",
-                          style: TextStyle(
-                            fontSize: 18.0,
-                            //fontFamily: "Raleway",
-                            color: Colors.black,
-                          ),
-                        ),
-                        Image.asset(
-                          "assets/enter_logo.png",
-                          width: 120.0,
-                          height: 120.0,
-                        )
-                      ],
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(10.0),
-                      ),
-                      primary: Color.fromRGBO(230, 233, 238, 1),
-                      elevation: 0.5,
-                    ),
-                  ),
-                ),
-              ),
+              topTitle(),
+              entryRegistrationButton(),
             ],
           ),
         ),
@@ -130,6 +80,64 @@ class _HomePageState extends State<HomePage> {
         currentIndex: _selectedIndex,
         selectedItemColor: Colors.blue[800],
         onTap: _onItemTapped,
+      ),
+    );
+  }
+
+  Widget topTitle() {
+    return Container(
+      margin: EdgeInsets.only(left: 10, bottom: 10),
+      width: MediaQuery.of(context).size.width,
+      child: Text(
+        'Для пользователей',
+        style: TextStyle(
+          fontWeight: FontWeight.w600,
+          fontSize: 16,
+        ),
+      ),
+    );
+  }
+
+  Widget entryRegistrationButton() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 10.0),
+      child: SizedBox(
+        height: 80.0,
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => QrScanner(),
+              ),
+            );
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Регистрация входа",
+                style: TextStyle(
+                  fontSize: 18.0,
+                  //fontFamily: "Raleway",
+                  color: Colors.black,
+                ),
+              ),
+              Image.asset(
+                "assets/enter_logo.png",
+                width: 120.0,
+                height: 120.0,
+              )
+            ],
+          ),
+          style: ElevatedButton.styleFrom(
+            shape: RoundedRectangleBorder(
+              borderRadius: new BorderRadius.circular(10.0),
+            ),
+            primary: Color.fromRGBO(230, 233, 238, 1),
+            elevation: 0.5,
+          ),
+        ),
       ),
     );
   }
