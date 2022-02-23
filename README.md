@@ -1,5 +1,5 @@
-# Ashyq
-This is the clone of [Ashyq]
+# Zhabyq
+This is the clone of Ashyq mobile app.
 
 Just for trying out the new features and my personal skills  
 
